@@ -1,7 +1,20 @@
 <?php
-function jQuery($match)
+if (defined('DEBUG') && DEBUG)
 {
-	return new biz\behnke\jquery\jQuery($match);
+	ini_set('display_errors', 'On');
+	error_reporting(E_ALL);
+}
+else
+{
+	ini_set('display_errors', 'Off');
+	error_reporting(E_ERROR);
+}
+
+use biz\behnke\jquery\jQuery;
+
+function jQuery($match, $scope = null)
+{
+	return new jQuery($match, $scope);
 }
 
 /**
