@@ -1,48 +1,145 @@
 <?php
 namespace biz\behnke\jquery;
+use biz\behnke\jquery\ui\jQueryUI;
+
 /**
  * Description of jQuery
  *
- * @author marcobehnke
+ * @author Marco Behnke <marco@behnke.biz>
  */
-class jQuery {
+abstract class jQuery
+{
+	/**
+	 * jQuery version for this build
+	 */
+	const VERSION = '1.6.2';
 
-	const VERSION = '1.7.0';
+	protected $match = '';
+	
+	protected $scope = null;
 
-	static $CallStack = array();
+	/**
+	 * true if this widget was printed
+	 *
+	 * @var boolean
+	 */
+	protected $rendered = false;
 
-	protected $stackBuffer = array();
+	/**
+	 * config container
+	 *
+	 * @var biz\behnke\jquery\jQueryConfig
+	 */
+	protected $config;
 
-	static function renderAll($returnResult = false)
+	/**
+	 * key value pairs for default configuration
+	 * @var String
+	 */
+	protected $defConfig = array();
+
+	/**
+	 * widgets to be rendered
+	 * 
+	 * @var array
+	 */
+	protected static $CallStack = array();
+
+	/**
+	 * get instance of jquery widget
+	 * 
+	 * @param <type> $match
+	 * @param <type> $scope
+	 * @return className
+	 */
+	static function getInstance($match, $scope = null)
 	{
-		$result = '';
-		foreach(self::$CallStack as $object)
-		{
-			$result .= $object->render();
-			$result .= ";\n";
-		}
-		if (!$returnResult)
-		{
-			print $result;
-		}
-		return $result;
+		$className = static::CLASSNAME;
+		return new $className($match, $scope);
 	}
-
-	protected function render()
-	{
-		return implode('.', $this->stackBuffer);
-	}
-
+	
 	public function __construct($match, $scope = null)
 	{
-		self::$CallStack[] = $this;
-		$this->stackBuffer[] = sprintf('jQuery(\'%s\')', $match);
+		$this->match = $match;
+		$this->scope = $scope;
+		$this->config = jQueryConfig::getInstance($this->defConfig);
 	}
 
-	public function datepicker()
+	/**
+	 * escape value, quote '
+	 *
+	 * @param String $value
+	 * @return String
+	 */
+	static function quote($value)
 	{
-		$this->stackBuffer[] = 'datepicker()';
+		return "'".str_replace("'", "\\'", $value)."'";
+	}
+
+	/**
+	 * append widget to call stack
+	 * 
+	 * @param <type> $object
+	 */
+	static function add($object)
+	{
+		self::$CallStack[] = $object;
+	}
+
+	/**
+	 * render out call stack to javascript
+	 */
+	static function renderJS()
+	{
+		foreach (self::$CallStack as $widget)
+		{
+			if (!$widget->rendered)
+			{
+				print $widget . ';' . PHP_EOL;
+			}
+		}
+	}
+
+	/**
+	 * render html ui widget
+	 */
+	abstract function renderUI();
+
+	/**
+	 * transform widget to javascript
+	 * 
+	 * @return String
+	 */
+	public function __toString()
+	{
+		$widget->rendered = true;
+		$config = json_encode($this->config);
+		return 'jQuery('
+			.self::quote('#'.$this->match).').'
+			.static::METHOD.'('.$config.')'
+		;
+	}
+
+	/**
+	 *
+	 * @param String $name
+	 * @param array $arguments
+	 * @return jQuery
+	 */
+	public function __call($name, $arguments)
+	{
+		if (isset($this->config->$name) && count($arguments) == 0) // getter
+		{
+			return $this->config->$name;
+		}
+		else if (isset($this->config->$name) && count($arguments) == 1) // setter
+		{
+			$this->config->$name = array_pop($arguments);
+		}
+		else
+		{
+			throw new \Exception(sprintf('Invalid method "%s" called in %s:%d', $name, __FILE__, __LINE__), 500);
+		}
 		return $this;
 	}
-
 }
