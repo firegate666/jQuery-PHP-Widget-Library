@@ -9,6 +9,14 @@ use biz\behnke\jquery\jQuery;
 use biz\behnke\jquery\ui\widgets\DatePicker;
 use biz\behnke\jquery\ui\widgets\Slider;
 use biz\behnke\jquery\ui\widgets\Button;
+use biz\behnke\jquery\ui\widgets\Autocomplete;
+
+$autoComplete_xml = simplexml_load_file('http://ws.geonames.org/countryInfo');
+$autocompleteExample = array();
+foreach($autoComplete_xml->country as $country)
+{
+	$autocompleteExample[] = (String)$country->countryName;
+}
 
 ?>
 <!DOCTYPE html>
@@ -31,6 +39,8 @@ use biz\behnke\jquery\ui\widgets\Button;
 		<div><?php Button::getInstance('button')->label('Buttontext')->renderUI(); ?></div>
 
 		<div><?php Slider::getInstance('slider')->value(50)->animate(true)->renderUI(); ?></div>
+
+		<div><label for="autocomplete">Choose country:</label> <?php Autocomplete::getInstance('autocomplete')->source($autocompleteExample)->renderUI(); ?></div>
 
 		<div style="position: absolute; bottom: 0; right: 0;" class="theme-switch">
 			<label>Choose theme:</label>
