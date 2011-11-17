@@ -33,14 +33,23 @@ use biz\behnke\jquery\ui\widgets\Button;
 
 		<div><?php Button::getInstance('button')->label('Buttontext')->renderUI(); ?></div>
 
-		<div style="position: absolute; bottom: 0; right: 0;">
-			<a href="assets/jquery-ui-1.8.16.custom/css/ui-lightness/jquery-ui-1.8.16.custom.css" class="theme-switch">ui-lightness</a> |
-			<a href="assets/jquery-ui-1.8.16.custom/css/ui-darkness/jquery-ui-1.8.16.custom.css" class="theme-switch">ui-darkness</a>
+		<div style="position: absolute; bottom: 0; right: 0;" class="theme-switch">
+			Choose theme:
+			<?php Button::getInstance('ui-lightness')
+				->label('ui-lightness')
+				->type(Button::TYPE_LINK)
+				->href("assets/jquery-ui-1.8.16.custom/css/ui-lightness/jquery-ui-1.8.16.custom.css")
+				->renderUI(); ?> |
+			<?php Button::getInstance('ui-darkness')
+				->label('ui-darkness')
+				->type(Button::TYPE_LINK)
+				->href("assets/jquery-ui-1.8.16.custom/css/ui-darkness/jquery-ui-1.8.16.custom.css")
+				->renderUI(); ?>
 		</div>
 
 		<script type="text/javascript">
 			jQuery('#startdate').datepicker();
-			jQuery('.theme-switch').click(function(){
+			jQuery('.theme-switch a').click(function(){
 				jQuery('#theme-switch').attr('href', jQuery(this).attr('href'));
 				return false;
 			});
