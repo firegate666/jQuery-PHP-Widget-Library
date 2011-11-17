@@ -24,16 +24,16 @@ use biz\behnke\jquery\ui\widgets\Button;
 
 		<h1>Some Widget Examples</h1>
 			
-		<div>Startdatum: <?php DatePicker::getInstance('startdate')->renderUI(); ?></div>
+		<div><label for="startdate">Startdatum:</label> <?php DatePicker::getInstance('startdate')->renderUI(); ?></div>
 
-		<div>Enddatum: <?php DatePicker::getInstance('enddate')->renderUI(); ?></div>
+		<div><label for="startdate">Enddatum:</label> <?php DatePicker::getInstance('enddate')->renderUI(); ?></div>
 
 		<div><?php Button::getInstance('button')->label('Buttontext')->renderUI(); ?></div>
 
 		<div><?php Slider::getInstance('slider')->value(50)->animate(true)->renderUI(); ?></div>
 
 		<div style="position: absolute; bottom: 0; right: 0;" class="theme-switch">
-			Choose theme:
+			<label>Choose theme:</label>
 			<?php Button::getInstance('ui-lightness')
 				->label('ui-lightness')
 				->type(Button::TYPE_LINK)
