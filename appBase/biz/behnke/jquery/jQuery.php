@@ -46,6 +46,31 @@ abstract class jQuery
 	protected static $CallStack = array();
 
 	/**
+	protected $attributes = array();
+
+	protected function renderAttr()
+	{
+		$attr = array();
+		foreach($this->attributes as $k=>$v)
+		{
+			$attr[] = sprintf('%s="%s"', $k, \htmlspecialchars($v, \ENT_COMPAT, 'UTF-8'));
+		}
+		return implode(' ', $attr);
+	}
+
+	public function attr($key, $value = null)
+	{
+		if (is_null($value) && \array_key_exists($key, $this->attributes))
+		{
+			return $this->attributes[$key];
+		}
+		else if (!is_null($value))
+		{
+			$this->attributes[$key] = $value;
+			return $this;
+		}
+		return null;
+	}
 	 * get instance of jquery widget
 	 * 
 	 * @param <type> $match

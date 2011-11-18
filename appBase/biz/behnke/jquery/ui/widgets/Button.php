@@ -29,8 +29,6 @@ class Button extends jQueryUI {
 		'text' => true,
 		'disabled' => false,
 		'icons' => array('primary' => null, 'secondary' => null),
-		'href' => '', /** @todo move to view/layouts someday */
-		'value' => '', /** @todo move to view/layouts someday */
 	);
 
 	/**
@@ -52,14 +50,14 @@ class Button extends jQueryUI {
 		switch ($this->type)
 		{
 			case self::TYPE_INPUT:
-				print '<input id="'.$this->match.'" />';
+				print sprintf('<input %s id="'.$this->match.'" />', $this->renderAttr());
 				break;
 			case self::TYPE_LINK:
-				print '<a href="'.$this->config->href.'" id="'.$this->match.'"></a>';
+				print sprintf('<a %s id="'.$this->match.'"></a>', $this->renderAttr());
 				break;
 			case self::TYPE_BUTTON:
 			default:
-				print '<button id="'.$this->match.'"></button>';
+				print sprintf('<button %s id="'.$this->match.'"></button>', $this->renderAttr());
 				break;
 		}
 		self::add($this);

@@ -47,12 +47,12 @@ foreach($autoComplete_xml->country as $country)
 			<?php Button::getInstance('ui-lightness')
 				->label('ui-lightness')
 				->type(Button::TYPE_LINK)
-				->href("assets/jquery-ui-1.8.16.custom/css/ui-lightness/jquery-ui-1.8.16.custom.css")
+				->attr('href', "assets/jquery-ui-1.8.16.custom/css/ui-lightness/jquery-ui-1.8.16.custom.css")
 				->renderUI(); ?> |
 			<?php Button::getInstance('ui-darkness')
 				->label('ui-darkness')
 				->type(Button::TYPE_LINK)
-				->href("assets/jquery-ui-1.8.16.custom/css/ui-darkness/jquery-ui-1.8.16.custom.css")
+				->attr('href', "assets/jquery-ui-1.8.16.custom/css/ui-darkness/jquery-ui-1.8.16.custom.css")
 				->renderUI(); ?>
 		</div>
 
