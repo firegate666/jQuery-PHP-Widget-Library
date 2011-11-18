@@ -18,9 +18,7 @@ use biz\behnke\w3c\html\blocklevel\P;
 
 use biz\behnke\w3c\html\inline\A;
 
-$autoComplete_xml = simplexml_load_file('http://ws.geonames.org/countryInfo');
-$autocompleteExample = array();
-foreach($autoComplete_xml->country as $country)
+foreach(\biz\behnke\util\Country::xmlList()->country as $country)
 {
 	$autocompleteExample[] = (String)$country->countryName;
 }
