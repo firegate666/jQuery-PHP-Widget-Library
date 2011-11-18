@@ -17,7 +17,8 @@ class Country
 
 	/**
 	 * get country list of xmlnodes
-	 * 
+	 *
+	 * @see http://ws.geonames.org/
 	 * @return array
 	 */
 	static function xmlList()

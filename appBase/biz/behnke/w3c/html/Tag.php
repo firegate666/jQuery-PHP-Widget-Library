@@ -13,7 +13,18 @@ abstract class Tag extends Base
 {
 	const SELF_CLOSING = false;
 
+	/**
+	 * our tag identifier, e.g. div
+	 *
+	 * @var String
+	 */
 	protected $name = null;
+
+	/**
+	 * html attributes
+	 *
+	 * @var array
+	 */
 	protected $attributes = array();
 	protected $innerHtml = array();
 
@@ -36,11 +47,19 @@ abstract class Tag extends Base
 		$this->attributes = $attributes;
 	}
 
+	/**
+	 * print object
+	 */
 	public function renderUI()
 	{
 		print $this;
 	}
 
+	/**
+	 * build string for tag
+	 *
+	 * @return String
+	 */
 	public function __toString()
 	{
 		$result = sprintf('<%s %s', $this->name, $this->renderAttr());

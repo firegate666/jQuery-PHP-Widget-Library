@@ -17,25 +17,42 @@ abstract class jQuery extends Base implements RenderUI
 	 */
 	const VERSION = '1.6.2';
 
+	/**
+	 * matcher for this object, in this case it is id
+	 *
+	 * @todo can this ever be something else than id?
+	 * @var String
+	 */
 	protected $match = '';
+
+	/**
+	 *
+	 * @todo unused yet. Will it ever be used?
+	 * @var null
+	 */
 	protected $scope = null;
+
 	/**
 	 * true if this widget was printed
 	 *
 	 * @var boolean
 	 */
 	protected $rendered = false;
+
 	/**
 	 * config container
 	 *
 	 * @var biz\behnke\jquery\jQueryConfig
 	 */
 	protected $config;
+
 	/**
 	 * key value pairs for default configuration
+	 *
 	 * @var String
 	 */
 	protected $defConfig = array();
+
 	/**
 	 * widgets to be rendered
 	 * 
@@ -46,9 +63,9 @@ abstract class jQuery extends Base implements RenderUI
 	/**
 	 * get instance of jquery widget
 	 *
-	 * @param <type> $match
-	 * @param <type> $scope
-	 * @return className
+	 * @param String $match
+	 * @param null $scope
+	 * @return jQuery
 	 */
 	static function getInstance($match, $scope = null)
 	{
@@ -77,7 +94,7 @@ abstract class jQuery extends Base implements RenderUI
 	/**
 	 * append widget to call stack
 	 * 
-	 * @param <type> $object
+	 * @param Object $object
 	 */
 	static function add($object)
 	{

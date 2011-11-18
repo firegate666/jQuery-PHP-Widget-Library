@@ -21,6 +21,7 @@ class Button extends jQueryUI
 	 * @var \biz\behnke\w3c\html\Tag
 	 */
 	protected $type = null;
+
 	protected $defConfig = array(
 		'label' => 'My Button',
 		'text' => true,
@@ -36,7 +37,7 @@ class Button extends jQueryUI
 
 	/**
 	 *
-	 * @param String $type
+	 * @param \biz\behnke\w3c\html\Tag $type
 	 * @return Button
 	 */
 	public function type($type)
