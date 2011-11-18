@@ -3,7 +3,6 @@
 namespace biz\behnke\jquery\ui\widgets;
 
 use biz\behnke\jquery\ui\jQueryUI;
-use biz\behnke\w3c\html\blocklevel\Div;
 
 /**
  * Description of Accordion
