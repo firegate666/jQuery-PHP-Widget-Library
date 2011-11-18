@@ -13,11 +13,6 @@ else
 use biz\behnke\jquery\jQuery;
 require_once __DIR__.'/biz/Helper.php';
 
-function jQuery($match, $scope = null)
-{
-	return new jQuery($match, $scope);
-}
-
 /**
  * register our namespace auto-loader
  */
