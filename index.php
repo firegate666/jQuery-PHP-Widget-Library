@@ -42,11 +42,11 @@ foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 		<div>Accordion:
 		<?php
 			ui\Accordion('accordion')
-				->append(html\H(3)->append(htmli\A()->attr('href', '#')->append('Section 1')))
+				->append(html\H3()->append(htmli\A()->attr('href', '#')->append('Section 1')))
 				->append(html\Div()->append(html\P()->append('Text 1')))
-				->append(html\H(3)->append(htmli\A()->attr('href', '#')->append('Section 2')))
+				->append(html\H3()->append(htmli\A()->attr('href', '#')->append('Section 2')))
 				->append(html\Div()->append(html\P()->append('Text 2')))
-				->append(html\H(3)->append(htmli\A()->attr('href', '#')->append('Section 3')))
+				->append(html\H3()->append(htmli\A()->attr('href', '#')->append('Section 3')))
 				->append(html\Div()->append(html\P()->append('Text 3')))
 				->event('mouseover')
 				->renderUI();
