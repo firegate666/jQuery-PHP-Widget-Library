@@ -2,7 +2,7 @@
 namespace biz\behnke\w3c\html\blocklevel;
 
 /**
- * Description of P
+ * Description of Div
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
