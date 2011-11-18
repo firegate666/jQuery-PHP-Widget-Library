@@ -30,6 +30,50 @@ abstract class Base {
 		return $result;
 	}
 
+	protected $afterHtml = array();
+
+	protected function renderAfterHtml()
+	{
+		$result = '';
+		foreach($this->afterHtml as $object)
+		{
+			if ($object instanceof RenderUI)
+			{
+				\ob_start();
+				$object->renderUI();
+				$renderedContent = \ob_get_flush();
+				$result .= $renderedContent;
+			}
+			else
+			{
+				$result .= $object;
+			}
+		}
+		return $result;
+	}
+
+	protected $beforeHtml = array();
+
+	protected function renderBeforeHtml()
+	{
+		$result = '';
+		foreach($this->beforeHtml as $object)
+		{
+			if ($object instanceof RenderUI)
+			{
+				\ob_start();
+				$object->renderUI();
+				$renderedContent = \ob_get_flush();
+				$result .= $renderedContent;
+			}
+			else
+			{
+				$result .= $object;
+			}
+		}
+		return $result;
+	}
+
 	/**
 	 * object wrapped inside this one
 	 *
@@ -71,6 +115,18 @@ abstract class Base {
 	{
 		$object->append($this);
 		return $object;
+	}
+
+	public function before($object)
+	{
+		$this->beforeHtml[] = $object;
+		return $this;
+	}
+
+	public function after($object)
+	{
+		$this->afterHtml[] = $object;
+		return $this;
 	}
 
 	public static function getCalledClass()
