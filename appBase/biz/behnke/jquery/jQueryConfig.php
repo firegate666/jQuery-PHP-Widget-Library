@@ -10,14 +10,18 @@ namespace biz\behnke\jquery;
 class jQueryConfig
 {
 
-	static function getInstance(array $properties = array())
+	public function __construct(array $properties = array())
 	{
-		$config = new jQueryConfig();
 		foreach ($properties as $name => $value)
 		{
-			$config->$name = $value;
+			$this->$name = $value;
 		}
-		return $config;
+	}
+
+	static function getInstance(array $properties = array())
+	{
+		return new jQueryConfig($properties);
+
 	}
 
 }
