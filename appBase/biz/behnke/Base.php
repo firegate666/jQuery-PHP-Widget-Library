@@ -14,52 +14,33 @@ abstract class Base
 
 	protected function renderInnerHtml()
 	{
-		$result = '';
-		foreach ($this->innerHtml as $object)
-		{
-			if ($object instanceof RenderUI)
-			{
-				\ob_start();
-				$object->renderUI();
-				$renderedContent = \ob_get_flush();
-				$result .= $renderedContent;
-			}
-			else
-			{
-				$result .= $object;
-			}
-		}
-		return $result;
+		return $this->renderHtml($this->innerHtml);
 	}
 
 	protected $afterHtml = array();
 
 	protected function renderAfterHtml()
 	{
-		$result = '';
-		foreach ($this->afterHtml as $object)
-		{
-			if ($object instanceof RenderUI)
-			{
-				\ob_start();
-				$object->renderUI();
-				$renderedContent = \ob_get_flush();
-				$result .= $renderedContent;
-			}
-			else
-			{
-				$result .= $object;
-			}
-		}
-		return $result;
+		return $this->renderHtml($this->afterHtml);
 	}
 
 	protected $beforeHtml = array();
 
 	protected function renderBeforeHtml()
 	{
+		return $this->renderHtml($this->beforeHtml);
+	}
+
+	/**
+	 * render collection of objecs to html
+	 *
+	 * @param array $htmlArray
+	 * @return String
+	 */
+	private function renderHtml($htmlArray)
+	{
 		$result = '';
-		foreach ($this->beforeHtml as $object)
+		foreach ($htmlArray as $object)
 		{
 			if ($object instanceof RenderUI)
 			{
