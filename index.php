@@ -54,6 +54,8 @@ foreach(\biz\behnke\util\Country::xmlList()->country as $country)
 			?>
 		</div>
 
+		<div>Progressbar: <?php ui\Progressbar('progressbar')->value(25)->renderUI(); ?></div>
+
 		<div>Slider: <?php ui\Slider('slider')->value(50)->animate(true)->renderUI(); ?></div>
 
 		<div><label for="autocomplete">Choose country:</label> <?php ui\Autocomplete('autocomplete')->source($autocompleteExample)->renderUI(); ?></div>

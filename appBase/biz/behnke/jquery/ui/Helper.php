@@ -25,3 +25,8 @@ function Slider($match, $scope = null)
 {
 	return \biz\behnke\jquery\ui\widgets\Slider::getInstance($match, $scope);
 }
+
+function Progressbar($match, $scope = null)
+{
+	return \biz\behnke\jquery\ui\widgets\Progressbar::getInstance($match, $scope);
+}
