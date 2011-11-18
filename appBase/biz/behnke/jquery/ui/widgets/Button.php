@@ -1,6 +1,7 @@
 <?php
 namespace biz\behnke\jquery\ui\widgets;
 use biz\behnke\jquery\ui\jQueryUI;
+use biz\behnke\w3c\html\inline\A;
 
 /**
  * Description of Button
@@ -12,16 +13,12 @@ class Button extends jQueryUI {
 
 	const METHOD = 'button';
 
-	const TYPE_BUTTON = 0;
-	const TYPE_INPUT = 1;
-	const TYPE_LINK = 2;
-
 	/**
 	 * button type
 	 *
-	 * @var integer
+	 * @var \biz\behnke\w3c\html\Tag
 	 */
-	protected $type = self::TYPE_BUTTON;
+	protected $type = null;
 
 	protected $defConfig = array(
 		'label' => 'My Button',
@@ -29,6 +26,12 @@ class Button extends jQueryUI {
 		'disabled' => false,
 		'icons' => array('primary' => null, 'secondary' => null),
 	);
+
+	public function __construct($match, $scope = null)
+	{
+		parent::__construct($match, $scope = null);
+		$this->type(A::getInstance());
+	}
 
 	/**
 	 *
@@ -46,19 +49,14 @@ class Button extends jQueryUI {
 	 */
 	function renderUI()
 	{
-		switch ($this->type)
+
+		foreach ($this->attributes as $k=>$v)
 		{
-			case self::TYPE_INPUT:
-				print sprintf('<input %s id="'.$this->match.'" />', $this->renderAttr());
-				break;
-			case self::TYPE_LINK:
-				print sprintf('<a %s id="'.$this->match.'"></a>', $this->renderAttr());
-				break;
-			case self::TYPE_BUTTON:
-			default:
-				print sprintf('<button %s id="'.$this->match.'"></button>', $this->renderAttr());
-				break;
+			$this->type->attr($k, $v);
 		}
+		$this->type->attr('id', $this->match);
+		print $this->type;
+
 		self::add($this);
 	}
 
