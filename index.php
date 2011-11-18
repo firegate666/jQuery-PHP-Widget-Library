@@ -54,6 +54,21 @@ foreach(\biz\behnke\util\Country::xmlList()->country as $country)
 			?>
 		</div>
 
+		<div>Tabs:
+			<?php
+				ui\Tabs('tabs')
+					->append(html\Ul()
+						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-1')->append('Tab 1')))
+						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-2')->append('Tab 2')))
+						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-3')->append('Tab 3')))
+					)
+					->append(html\Div()->append(html\P()->append('Proin elit arcu, rutrum commodo, vehicula tempus.'))->attr('id', 'tabs-1'))
+					->append(html\Div()->append(html\P()->append('Morbi tincidunt, dui sit amet facilisis feugiat.'))->attr('id', 'tabs-2'))
+					->append(html\Div()->append(html\P()->append('Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti.'))->attr('id', 'tabs-3'))
+					->renderUI();
+			?>
+		</div>
+
 		<div>Progressbar: <?php ui\Progressbar('progressbar')->value(25)->renderUI(); ?></div>
 
 		<div>Slider: <?php ui\Slider('slider')->value(50)->animate(true)->renderUI(); ?></div>
