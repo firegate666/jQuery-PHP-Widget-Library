@@ -17,7 +17,10 @@ abstract class Base {
 		{
 			if ($object instanceof RenderUI)
 			{
-				$result .= $object->renderUI();
+				\ob_start();
+				$object->renderUI();
+				$renderedContent = \ob_get_flush();
+				$result .= $renderedContent;
 			}
 			else
 			{
