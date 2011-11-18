@@ -69,4 +69,20 @@ abstract class Base {
 		$object->append($this);
 		return $object;
 	}
+
+	public static function getCalledClass()
+	{
+		return get_called_class();
+	}
+
+	/**
+	 * get instance of class
+	 *
+	 * @return Object
+	 */
+	static function getInstance()
+	{
+		$calledClass = static::getCalledClass();
+		return new $calledClass();
+	}
 }

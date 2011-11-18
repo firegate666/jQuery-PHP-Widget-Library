@@ -10,7 +10,6 @@ use biz\behnke\jquery\ui\jQueryUI;
  */
 class DatePicker extends jQueryUI
 {
-	const CLASSNAME = 'biz\behnke\jquery\ui\widgets\DatePicker';
 	const METHOD = 'datepicker';
 
 	/**

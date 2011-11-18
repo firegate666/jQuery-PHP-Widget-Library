@@ -10,7 +10,6 @@ use biz\behnke\jquery\ui\jQueryUI;
  */
 class Slider extends jQueryUI {
 
-	const CLASSNAME = 'biz\behnke\jquery\ui\widgets\Slider';
 	const METHOD = 'slider';
 
 	protected $defConfig = array(

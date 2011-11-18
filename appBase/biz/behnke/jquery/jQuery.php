@@ -48,17 +48,17 @@ abstract class jQuery extends Base implements RenderUI
 
 	/**
 	 * get instance of jquery widget
-	 * 
+	 *
 	 * @param <type> $match
 	 * @param <type> $scope
 	 * @return className
 	 */
 	static function getInstance($match, $scope = null)
 	{
-		$className = static::CLASSNAME;
-		return new $className($match, $scope);
+		$calledClass = static::getCalledClass();
+		return new $calledClass($match, $scope);
 	}
-	
+
 	public function __construct($match, $scope = null)
 	{
 		$this->match = $match;

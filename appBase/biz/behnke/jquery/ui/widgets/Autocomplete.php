@@ -10,7 +10,6 @@ use biz\behnke\jquery\ui\jQueryUI;
  */
 class Autocomplete extends jQueryUI {
 
-	const CLASSNAME = 'biz\behnke\jquery\ui\widgets\Autocomplete';
 	const METHOD = 'autocomplete';
 
 	protected $defConfig = array(

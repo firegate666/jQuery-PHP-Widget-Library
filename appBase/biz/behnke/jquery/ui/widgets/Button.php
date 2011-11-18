@@ -10,7 +10,6 @@ use biz\behnke\jquery\ui\jQueryUI;
  */
 class Button extends jQueryUI {
 
-	const CLASSNAME = 'biz\behnke\jquery\ui\widgets\Button';
 	const METHOD = 'button';
 
 	const TYPE_BUTTON = 0;
