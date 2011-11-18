@@ -6,6 +6,11 @@ function Accordion($match, $scope = null)
 	return \biz\behnke\jquery\ui\widgets\Accordion::getInstance($match, $scope);
 }
 
+function Tabs($match, $scope = null)
+{
+	return \biz\behnke\jquery\ui\widgets\Tabs::getInstance($match, $scope);
+}
+
 function DatePicker($match, $scope = null)
 {
 	return \biz\behnke\jquery\ui\widgets\DatePicker::getInstance($match, $scope);
