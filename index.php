@@ -10,6 +10,13 @@ use biz\behnke\jquery\ui\widgets\DatePicker;
 use biz\behnke\jquery\ui\widgets\Slider;
 use biz\behnke\jquery\ui\widgets\Button;
 use biz\behnke\jquery\ui\widgets\Autocomplete;
+use biz\behnke\jquery\ui\widgets\Accordion;
+
+use biz\behnke\w3c\html\blocklevel\H;
+use biz\behnke\w3c\html\blocklevel\Div;
+use biz\behnke\w3c\html\blocklevel\P;
+
+use biz\behnke\w3c\html\inline\A;
 
 $autoComplete_xml = simplexml_load_file('http://ws.geonames.org/countryInfo');
 $autocompleteExample = array();
@@ -34,11 +41,25 @@ foreach($autoComplete_xml->country as $country)
 			
 		<div><label for="startdate">Startdatum:</label> <?php DatePicker::getInstance('startdate')->renderUI(); ?></div>
 
-		<div><label for="startdate">Enddatum:</label> <?php DatePicker::getInstance('enddate')->renderUI(); ?></div>
+		<div><label for="enddate">Enddatum:</label> <?php DatePicker::getInstance('enddate')->renderUI(); ?></div>
 
-		<div><?php Button::getInstance('button')->label('Buttontext')->renderUI(); ?></div>
+		<div>Button: <?php Button::getInstance('button')->label('Buttontext')->renderUI(); ?></div>
 
-		<div><?php Slider::getInstance('slider')->value(50)->animate(true)->renderUI(); ?></div>
+		<div>Accordion:
+			<?php
+				Accordion::getInstance('accordion')
+					->append(H::getInstance(3)->append(A::getInstance()->attr('href', '#')->append('Section 1')))
+					->append(Div::getInstance()->append(P::getInstance()->append('Text 1')))
+					->append(H::getInstance(3)->append(A::getInstance()->attr('href', '#')->append('Section 2')))
+					->append(Div::getInstance()->append(P::getInstance()->append('Text 2')))
+					->append(H::getInstance(3)->append(A::getInstance()->attr('href', '#')->append('Section 3')))
+					->append(Div::getInstance()->append(P::getInstance()->append('Text 3')))
+					->event('mouseover')
+					->renderUI();
+			?>
+		</div>
+
+		<div>Slider: <?php Slider::getInstance('slider')->value(50)->animate(true)->renderUI(); ?></div>
 
 		<div><label for="autocomplete">Choose country:</label> <?php Autocomplete::getInstance('autocomplete')->source($autocompleteExample)->renderUI(); ?></div>
 
