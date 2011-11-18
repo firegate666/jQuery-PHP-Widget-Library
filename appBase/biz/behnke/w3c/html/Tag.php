@@ -26,7 +26,6 @@ abstract class Tag extends Base
 	 * @var array
 	 */
 	protected $attributes = array();
-	protected $innerHtml = array();
 
 	/**
 	 * get instance of tag
