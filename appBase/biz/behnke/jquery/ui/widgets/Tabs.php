@@ -36,7 +36,7 @@ class Tabs extends jQueryUI
 	 */
 	function renderUI()
 	{
-		print sprintf('%s, <div id="%s">%s</div>%s',
+		print sprintf('%s<div id="%s">%s</div>%s',
 				$this->renderBeforeHtml(),
 				$this->match,
 				$this->renderInnerHtml(),
