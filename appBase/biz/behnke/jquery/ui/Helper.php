@@ -1,4 +1,5 @@
 <?php
+
 namespace biz\behnke\jquery\ui\helper;
 
 function Accordion($match, $scope = null)

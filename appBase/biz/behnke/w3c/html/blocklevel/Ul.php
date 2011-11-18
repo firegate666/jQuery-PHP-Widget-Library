@@ -1,4 +1,5 @@
 <?php
+
 namespace biz\behnke\w3c\html\blocklevel;
 
 /**
@@ -6,9 +7,10 @@ namespace biz\behnke\w3c\html\blocklevel;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-class Ul extends BlockLevel {
+class Ul extends BlockLevel
+{
 
-    public function __construct($attributes = array())
+	public function __construct($attributes = array())
 	{
 		parent::__construct('ul', $attributes);
 	}
@@ -24,5 +26,7 @@ class Ul extends BlockLevel {
 		$calledClass = static::getCalledClass();
 		return new $calledClass($attributes);
 	}
+
 }
+
 ?>

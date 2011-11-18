@@ -1,5 +1,7 @@
 <?php
+
 namespace biz\behnke\jquery;
+
 use biz\behnke\Base;
 use biz\behnke\RenderUI;
 
@@ -16,29 +18,24 @@ abstract class jQuery extends Base implements RenderUI
 	const VERSION = '1.6.2';
 
 	protected $match = '';
-	
 	protected $scope = null;
-
 	/**
 	 * true if this widget was printed
 	 *
 	 * @var boolean
 	 */
 	protected $rendered = false;
-
 	/**
 	 * config container
 	 *
 	 * @var biz\behnke\jquery\jQueryConfig
 	 */
 	protected $config;
-
 	/**
 	 * key value pairs for default configuration
 	 * @var String
 	 */
 	protected $defConfig = array();
-
 	/**
 	 * widgets to be rendered
 	 * 
@@ -74,7 +71,7 @@ abstract class jQuery extends Base implements RenderUI
 	 */
 	static function quote($value)
 	{
-		return "'".str_replace("'", "\\'", $value)."'";
+		return "'" . str_replace("'", "\\'", $value) . "'";
 	}
 
 	/**
@@ -111,8 +108,8 @@ abstract class jQuery extends Base implements RenderUI
 		$widget->rendered = true;
 		$config = json_encode($this->config);
 		return 'jQuery('
-			.self::quote('#'.$this->match).').'
-			.static::METHOD.'('.$config.')'
+		. self::quote('#' . $this->match) . ').'
+		. static::METHOD . '(' . $config . ')'
 		;
 	}
 
@@ -138,4 +135,5 @@ abstract class jQuery extends Base implements RenderUI
 		}
 		return $this;
 	}
+
 }

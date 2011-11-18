@@ -1,5 +1,7 @@
 <?php
+
 namespace biz\behnke\jquery\ui\widgets;
+
 use biz\behnke\jquery\ui\jQueryUI;
 use biz\behnke\w3c\html\inline\A;
 
@@ -9,8 +11,8 @@ use biz\behnke\w3c\html\inline\A;
  * @author Marco Behnke <marco@behnke.biz>
  * @see http://jqueryui.com/demos/button/
  */
-class Button extends jQueryUI {
-
+class Button extends jQueryUI
+{
 	const METHOD = 'button';
 
 	/**
@@ -19,7 +21,6 @@ class Button extends jQueryUI {
 	 * @var \biz\behnke\w3c\html\Tag
 	 */
 	protected $type = null;
-
 	protected $defConfig = array(
 		'label' => 'My Button',
 		'text' => true,
@@ -50,7 +51,7 @@ class Button extends jQueryUI {
 	function renderUI()
 	{
 
-		foreach ($this->attributes as $k=>$v)
+		foreach ($this->attributes as $k => $v)
 		{
 			$this->type->attr($k, $v);
 		}

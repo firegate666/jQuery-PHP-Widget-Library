@@ -1,4 +1,5 @@
 <?php
+
 namespace biz\behnke;
 
 /**
@@ -6,6 +7,7 @@ namespace biz\behnke;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-interface RenderUI {
-    public function renderUI();
+interface RenderUI
+{
+	public function renderUI();
 }

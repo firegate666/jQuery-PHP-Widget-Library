@@ -1,5 +1,7 @@
 <?php
+
 namespace biz\behnke\w3c\html\blocklevel;
+
 use biz\behnke\w3c\html\Tag;
 
 /**
@@ -7,6 +9,7 @@ use biz\behnke\w3c\html\Tag;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-abstract class BlockLevel extends Tag {
+abstract class BlockLevel extends Tag
+{
 
 }

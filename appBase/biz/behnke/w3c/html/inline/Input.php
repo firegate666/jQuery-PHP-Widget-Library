@@ -1,4 +1,5 @@
 <?php
+
 namespace biz\behnke\w3c\html\inline;
 
 /**
@@ -6,11 +7,11 @@ namespace biz\behnke\w3c\html\inline;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-class Input extends Inline {
-
+class Input extends Inline
+{
 	const SELF_CLOSING = true;
 
-    public function __construct($attributes = array())
+	public function __construct($attributes = array())
 	{
 		parent::__construct('input', $attributes);
 	}
@@ -26,4 +27,5 @@ class Input extends Inline {
 		$calledClass = static::getCalledClass();
 		return new $calledClass($attributes);
 	}
+
 }

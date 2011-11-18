@@ -1,4 +1,5 @@
 <?php
+
 namespace biz\behnke\util;
 
 /**
@@ -6,9 +7,10 @@ namespace biz\behnke\util;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-class Country {
+class Country
+{
 
-    private function __construct()
+	private function __construct()
 	{
 		// we want no objects
 	}

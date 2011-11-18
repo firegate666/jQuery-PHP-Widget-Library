@@ -1,4 +1,5 @@
 <?php
+
 namespace biz\behnke\w3c\html\inline\helper;
 
 function A($attributes = array())
@@ -15,7 +16,6 @@ function Li($attributes = array())
 {
 	return \biz\behnke\w3c\html\inline\Li::getInstance($attributes);
 }
-
 
 function Input($attributes = array())
 {

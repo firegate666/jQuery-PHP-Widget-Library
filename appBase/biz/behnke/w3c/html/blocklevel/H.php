@@ -1,4 +1,5 @@
 <?php
+
 namespace biz\behnke\w3c\html\blocklevel;
 
 /**
@@ -6,7 +7,8 @@ namespace biz\behnke\w3c\html\blocklevel;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-class H extends BlockLevel {
+class H extends BlockLevel
+{
 
 	/**
 	 * get instance of jquery widget
@@ -21,9 +23,9 @@ class H extends BlockLevel {
 		return new $calledClass($level, $attributes);
 	}
 
-    public function __construct($level = 1, $attributes = array())
+	public function __construct($level = 1, $attributes = array())
 	{
-		parent::__construct('h'.$level, $attributes);
+		parent::__construct('h' . $level, $attributes);
 	}
 
 }

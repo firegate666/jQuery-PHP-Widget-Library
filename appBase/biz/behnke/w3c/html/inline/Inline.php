@@ -1,5 +1,7 @@
 <?php
+
 namespace biz\behnke\w3c\html\inline;
+
 use biz\behnke\w3c\html\Tag;
 
 /**
@@ -7,6 +9,7 @@ use biz\behnke\w3c\html\Tag;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-abstract class Inline extends Tag {
+abstract class Inline extends Tag
+{
 
 }

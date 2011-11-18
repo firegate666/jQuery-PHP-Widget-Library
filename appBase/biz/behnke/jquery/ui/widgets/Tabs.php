@@ -1,5 +1,7 @@
 <?php
+
 namespace biz\behnke\jquery\ui\widgets;
+
 use biz\behnke\jquery\ui\jQueryUI;
 use biz\behnke\w3c\html\blocklevel\Div;
 
@@ -9,8 +11,8 @@ use biz\behnke\w3c\html\blocklevel\Div;
  * @author Marco Behnke <marco@behnke.biz>
  * @see http://jqueryui.com/demos/tabs/
  */
-class Tabs extends jQueryUI {
-
+class Tabs extends jQueryUI
+{
 	const METHOD = 'tabs';
 
 	protected $defConfig = array(
@@ -35,10 +37,10 @@ class Tabs extends jQueryUI {
 	function renderUI()
 	{
 		print sprintf('%s, <div id="%s">%s</div>%s',
-			$this->renderBeforeHtml(),
-			$this->match,
-			$this->renderInnerHtml(),
-			$this->renderAfterHtml()
+				$this->renderBeforeHtml(),
+				$this->match,
+				$this->renderInnerHtml(),
+				$this->renderAfterHtml()
 		);
 		self::add($this);
 	}

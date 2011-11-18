@@ -1,5 +1,7 @@
 <?php
+
 namespace biz\behnke\jquery\ui\widgets;
+
 use biz\behnke\jquery\ui\jQueryUI;
 
 /**
@@ -17,7 +19,7 @@ class DatePicker extends jQueryUI
 	 */
 	public function renderUI()
 	{
-		print '<input type="text" id="'.$this->match.'" />';
+		print '<input type="text" id="' . $this->match . '" />';
 		self::add($this);
 	}
 

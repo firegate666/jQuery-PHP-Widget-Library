@@ -1,5 +1,7 @@
 <?php
+
 namespace biz\behnke\jquery\ui\widgets;
+
 use biz\behnke\jquery\ui\jQueryUI;
 
 /**
@@ -8,12 +10,11 @@ use biz\behnke\jquery\ui\jQueryUI;
  * @author Marco Behnke <marco@behnke.biz>
  * @see http://jqueryui.com/demos/slider/
  */
-class Slider extends jQueryUI {
-
+class Slider extends jQueryUI
+{
 	const METHOD = 'slider';
 
 	protected $defConfig = array(
-
 		'disabled' => false,
 		'animate' => false,
 		'max' => 100,
@@ -30,7 +31,7 @@ class Slider extends jQueryUI {
 	 */
 	function renderUI()
 	{
-		print '<div id="'.$this->match.'"></div>';
+		print '<div id="' . $this->match . '"></div>';
 		self::add($this);
 	}
 

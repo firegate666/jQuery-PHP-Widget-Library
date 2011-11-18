@@ -1,4 +1,5 @@
 <?php
+
 namespace biz\behnke\jquery;
 
 /**
@@ -6,15 +7,17 @@ namespace biz\behnke\jquery;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-class jQueryConfig {
+class jQueryConfig
+{
 
 	static function getInstance(array $properties = array())
 	{
 		$config = new jQueryConfig();
-		foreach($properties as $name=>$value)
+		foreach ($properties as $name => $value)
 		{
 			$config->$name = $value;
 		}
 		return $config;
 	}
+
 }

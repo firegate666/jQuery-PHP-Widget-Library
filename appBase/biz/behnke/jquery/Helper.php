@@ -1,4 +1,5 @@
 <?php
+
 namespace biz\behnke\jquery\helper;
 
-require_once __DIR__.'/ui/Helper.php';
+require_once __DIR__ . '/ui/Helper.php';

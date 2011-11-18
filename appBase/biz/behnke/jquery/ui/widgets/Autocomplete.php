@@ -1,5 +1,7 @@
 <?php
+
 namespace biz\behnke\jquery\ui\widgets;
+
 use biz\behnke\jquery\ui\jQueryUI;
 
 /**
@@ -8,8 +10,8 @@ use biz\behnke\jquery\ui\jQueryUI;
  * @author Marco Behnke <marco@behnke.biz>
  * @see http://jqueryui.com/demos/autocomplete/
  */
-class Autocomplete extends jQueryUI {
-
+class Autocomplete extends jQueryUI
+{
 	const METHOD = 'autocomplete';
 
 	protected $defConfig = array(
@@ -18,7 +20,7 @@ class Autocomplete extends jQueryUI {
 		'autoFocus' => false,
 		'delay' => 300,
 		'minLength' => 1,
-		'position' => array('my' => 'left top', 'at' => 'left bottom', 'collision' => 'none' ),
+		'position' => array('my' => 'left top', 'at' => 'left bottom', 'collision' => 'none'),
 		'source' => array(),
 	);
 
@@ -27,7 +29,7 @@ class Autocomplete extends jQueryUI {
 	 */
 	function renderUI()
 	{
-		print '<input id="'.$this->match.'" />';
+		print '<input id="' . $this->match . '" />';
 		self::add($this);
 	}
 

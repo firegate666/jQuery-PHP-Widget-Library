@@ -1,4 +1,5 @@
 <?php
+
 if (defined('DEBUG') && DEBUG)
 {
 	ini_set('display_errors', 'On');
@@ -11,16 +12,18 @@ else
 }
 
 use biz\behnke\jquery\jQuery;
-require_once __DIR__.'/biz/Helper.php';
+
+require_once __DIR__ . '/biz/Helper.php';
 
 /**
  * register our namespace auto-loader
  */
 spl_autoload_register(function($class_name)
-{
-	$class_name = __DIR__.'/'.str_replace('\\', '/', $class_name).'.php';
-	if (file_exists($class_name))
 	{
-		require_once $class_name;
+		$class_name = __DIR__ . '/' . str_replace('\\', '/', $class_name) . '.php';
+		if (file_exists($class_name))
+		{
+			require_once $class_name;
+		}
 	}
-});
+);

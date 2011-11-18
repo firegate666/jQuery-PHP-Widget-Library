@@ -1,4 +1,5 @@
 <?php
+
 namespace biz\behnke;
 
 /**
@@ -6,14 +7,15 @@ namespace biz\behnke;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-abstract class Base {
+abstract class Base
+{
 
 	protected $innerHtml = array();
 
 	protected function renderInnerHtml()
 	{
 		$result = '';
-		foreach($this->innerHtml as $object)
+		foreach ($this->innerHtml as $object)
 		{
 			if ($object instanceof RenderUI)
 			{
@@ -35,7 +37,7 @@ abstract class Base {
 	protected function renderAfterHtml()
 	{
 		$result = '';
-		foreach($this->afterHtml as $object)
+		foreach ($this->afterHtml as $object)
 		{
 			if ($object instanceof RenderUI)
 			{
@@ -57,7 +59,7 @@ abstract class Base {
 	protected function renderBeforeHtml()
 	{
 		$result = '';
-		foreach($this->beforeHtml as $object)
+		foreach ($this->beforeHtml as $object)
 		{
 			if ($object instanceof RenderUI)
 			{
@@ -84,7 +86,7 @@ abstract class Base {
 	protected function renderAttr()
 	{
 		$attr = array();
-		foreach($this->attributes as $k=>$v)
+		foreach ($this->attributes as $k => $v)
 		{
 			$attr[] = sprintf('%s="%s"', $k, \htmlspecialchars($v, \ENT_COMPAT, 'UTF-8'));
 		}
@@ -144,4 +146,5 @@ abstract class Base {
 		$calledClass = static::getCalledClass();
 		return new $calledClass();
 	}
+
 }

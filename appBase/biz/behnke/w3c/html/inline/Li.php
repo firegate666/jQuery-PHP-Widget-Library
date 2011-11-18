@@ -1,4 +1,5 @@
 <?php
+
 namespace biz\behnke\w3c\html\inline;
 
 /**
@@ -6,9 +7,10 @@ namespace biz\behnke\w3c\html\inline;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-class Li extends Inline {
+class Li extends Inline
+{
 
-    public function __construct($attributes = array())
+	public function __construct($attributes = array())
 	{
 		parent::__construct('li', $attributes);
 	}
@@ -24,4 +26,5 @@ class Li extends Inline {
 		$calledClass = static::getCalledClass();
 		return new $calledClass($attributes);
 	}
+
 }

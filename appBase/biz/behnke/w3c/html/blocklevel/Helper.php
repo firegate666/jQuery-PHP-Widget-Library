@@ -1,4 +1,5 @@
 <?php
+
 namespace biz\behnke\w3c\html\blocklevel\helper;
 
 function Div($attributes = array())

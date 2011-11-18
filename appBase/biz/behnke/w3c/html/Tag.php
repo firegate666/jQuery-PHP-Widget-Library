@@ -1,5 +1,7 @@
 <?php
+
 namespace biz\behnke\w3c\html;
+
 use biz\behnke\Base;
 
 /**
@@ -7,14 +9,12 @@ use biz\behnke\Base;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-abstract class Tag extends Base {
-
+abstract class Tag extends Base
+{
 	const SELF_CLOSING = false;
 
 	protected $name = null;
-
 	protected $attributes = array();
-
 	protected $innerHtml = array();
 
 	/**
@@ -65,4 +65,5 @@ abstract class Tag extends Base {
 		}
 		return $result;
 	}
+
 }

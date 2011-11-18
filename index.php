@@ -4,18 +4,17 @@
  */
 define('DEBUG', true);
 
-require_once __DIR__.'/appBase/index.php';
-use biz\behnke\jquery\jQuery;
+require_once __DIR__ . '/appBase/index.php';
 
+use biz\behnke\jquery\jQuery;
 use biz\behnke\jquery\ui\helper as ui;
 use biz\behnke\w3c\html\blocklevel\helper as html;
 use biz\behnke\w3c\html\inline\helper as htmli;
 
-foreach(\biz\behnke\util\Country::xmlList()->country as $country)
+foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 {
-	$autocompleteExample[] = (String)$country->countryName;
+	$autocompleteExample[] = (String) $country->countryName;
 }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,7 +32,7 @@ foreach(\biz\behnke\util\Country::xmlList()->country as $country)
     <body>
 
 		<h1>Some Widget Examples</h1>
-			
+
 		<div><label for="startdate">Startdatum:</label> <?php ui\DatePicker('startdate')->renderUI(); ?></div>
 
 		<div><label for="enddate">Enddatum:</label> <?php ui\DatePicker('enddate')->renderUI(); ?></div>
@@ -41,32 +40,32 @@ foreach(\biz\behnke\util\Country::xmlList()->country as $country)
 		<div>Button: <?php ui\Button('button')->label('Buttontext')->type(htmli\Button())->renderUI(); ?></div>
 
 		<div>Accordion:
-			<?php
-				ui\Accordion('accordion')
-					->append(html\H(3)->append(htmli\A()->attr('href', '#')->append('Section 1')))
-					->append(html\Div()->append(html\P()->append('Text 1')))
-					->append(html\H(3)->append(htmli\A()->attr('href', '#')->append('Section 2')))
-					->append(html\Div()->append(html\P()->append('Text 2')))
-					->append(html\H(3)->append(htmli\A()->attr('href', '#')->append('Section 3')))
-					->append(html\Div()->append(html\P()->append('Text 3')))
-					->event('mouseover')
-					->renderUI();
-			?>
+		<?php
+			ui\Accordion('accordion')
+				->append(html\H(3)->append(htmli\A()->attr('href', '#')->append('Section 1')))
+				->append(html\Div()->append(html\P()->append('Text 1')))
+				->append(html\H(3)->append(htmli\A()->attr('href', '#')->append('Section 2')))
+				->append(html\Div()->append(html\P()->append('Text 2')))
+				->append(html\H(3)->append(htmli\A()->attr('href', '#')->append('Section 3')))
+				->append(html\Div()->append(html\P()->append('Text 3')))
+				->event('mouseover')
+				->renderUI();
+		?>
 		</div>
 
 		<div>Tabs:
-			<?php
-				ui\Tabs('tabs')
-					->append(html\Ul()
-						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-1')->append('Tab 1')))
-						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-2')->append('Tab 2')))
-						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-3')->append('Tab 3')))
-					)
-					->append(html\Div()->append(html\P()->append('Proin elit arcu, rutrum commodo, vehicula tempus.'))->attr('id', 'tabs-1'))
-					->append(html\Div()->append(html\P()->append('Morbi tincidunt, dui sit amet facilisis feugiat.'))->attr('id', 'tabs-2'))
-					->append(html\Div()->append(html\P()->append('Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti.'))->attr('id', 'tabs-3'))
-					->renderUI();
-			?>
+		<?php
+			ui\Tabs('tabs')
+				->append(html\Ul()
+					->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-1')->append('Tab 1')))
+					->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-2')->append('Tab 2')))
+					->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-3')->append('Tab 3')))
+				)
+				->append(html\Div()->append(html\P()->append('Proin elit arcu, rutrum commodo, vehicula tempus.'))->attr('id', 'tabs-1'))
+				->append(html\Div()->append(html\P()->append('Morbi tincidunt, dui sit amet facilisis feugiat.'))->attr('id', 'tabs-2'))
+				->append(html\Div()->append(html\P()->append('Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti.'))->attr('id', 'tabs-3'))
+				->renderUI();
+		?>
 		</div>
 
 		<div>Progressbar: <?php ui\Progressbar('progressbar')->value(25)->renderUI(); ?></div>
@@ -77,16 +76,21 @@ foreach(\biz\behnke\util\Country::xmlList()->country as $country)
 
 		<div style="position: absolute; bottom: 0; right: 0;" class="theme-switch">
 			<label>Choose theme:</label>
-			<?php ui\Button('ui-lightness')
-				->label('ui-lightness')
-				->type(htmli\A())
-				->attr('href', "assets/jquery-ui-1.8.16.custom/css/ui-lightness/jquery-ui-1.8.16.custom.css")
-				->renderUI(); ?> |
-			<?php ui\Button('ui-darkness')
-				->label('ui-darkness')
-				->type(htmli\A())
-				->attr('href', "assets/jquery-ui-1.8.16.custom/css/ui-darkness/jquery-ui-1.8.16.custom.css")
-				->renderUI(); ?>
+			<?php
+				ui\Button('ui-lightness')
+					->label('ui-lightness')
+					->type(htmli\A())
+					->attr('href', "assets/jquery-ui-1.8.16.custom/css/ui-lightness/jquery-ui-1.8.16.custom.css")
+					->renderUI();
+			?>
+			|
+			<?php
+				ui\Button('ui-darkness')
+					->label('ui-darkness')
+					->type(htmli\A())
+					->attr('href', "assets/jquery-ui-1.8.16.custom/css/ui-darkness/jquery-ui-1.8.16.custom.css")
+					->renderUI();
+			?>
 		</div>
 
 		<!-- the only javascript in this document -->
@@ -101,5 +105,5 @@ foreach(\biz\behnke\util\Country::xmlList()->country as $country)
 			<?php jQuery::renderJS(); ?>
 
 		//--></script>
-		</body>
+	</body>
 </html>
