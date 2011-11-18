@@ -4,7 +4,7 @@ namespace biz\behnke\w3c\html\inline;
 /**
  * Description of A
  *
- * @author behnke
+ * @author Marco Behnke <marco@behnke.biz>
  */
 class A extends Inline {
 

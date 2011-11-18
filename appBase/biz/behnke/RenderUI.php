@@ -4,7 +4,7 @@ namespace biz\behnke;
 /**
  * Description of RenderUI
  *
- * @author behnke
+ * @author Marco Behnke <marco@behnke.biz>
  */
 interface RenderUI {
     public function renderUI();

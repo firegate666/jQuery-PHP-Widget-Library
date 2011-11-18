@@ -4,7 +4,7 @@ namespace biz\behnke\w3c\html\blocklevel;
 /**
  * Description of P
  *
- * @author behnke
+ * @author Marco Behnke <marco@behnke.biz>
  */
 class Div extends BlockLevel {
 

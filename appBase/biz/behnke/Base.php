@@ -4,7 +4,7 @@ namespace biz\behnke;
 /**
  * Description of Base
  *
- * @author behnke
+ * @author Marco Behnke <marco@behnke.biz>
  */
 abstract class Base {
 

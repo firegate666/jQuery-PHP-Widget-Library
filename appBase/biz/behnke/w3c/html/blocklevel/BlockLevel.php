@@ -5,7 +5,7 @@ use biz\behnke\w3c\html\Tag;
 /**
  * Description of BlockLevel
  *
- * @author behnke
+ * @author Marco Behnke <marco@behnke.biz>
  */
 abstract class BlockLevel extends Tag {
 

@@ -5,7 +5,7 @@ use biz\behnke\Base;
 /**
  * Description of Tag
  *
- * @author behnke
+ * @author Marco Behnke <marco@behnke.biz>
  */
 abstract class Tag extends Base {
 
