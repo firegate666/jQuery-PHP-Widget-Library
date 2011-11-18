@@ -6,6 +6,11 @@ function Div($attributes = array())
 	return \biz\behnke\w3c\html\blocklevel\Div::getInstance($attributes);
 }
 
+function Ul($attributes = array())
+{
+	return \biz\behnke\w3c\html\blocklevel\Ul::getInstance($attributes);
+}
+
 function H($level = 1, $attributes = array())
 {
 	return \biz\behnke\w3c\html\blocklevel\H::getInstance($level, $attributes);
