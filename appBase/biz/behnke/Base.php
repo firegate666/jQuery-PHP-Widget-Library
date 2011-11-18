@@ -181,6 +181,35 @@ abstract class Base
 	}
 
 	/**
+	 * return innerHtml or replace content with new inner html
+	 *
+	 * @param mixed $innerHtml
+	 * @return Base/String
+	 */
+	public function html($innerHtml = null)
+	{
+		if (is_null($innerHtml))
+		{
+			return $this->renderInnerHtml();
+		}
+
+		$this->innerHtml = array();
+		if (is_array($innerHtml)) // check if this is really neccesary or if we can move this to renderHtml
+		{
+			foreach($innerHtml as $html)
+			{
+				$this->append($html);
+			}
+		}
+		else
+		{
+			$this->append($innerHtml);
+		}
+
+		return $this;
+	}
+
+	/**
 	 * returns the real name of the class we are called from
 	 *
 	 * @return String
