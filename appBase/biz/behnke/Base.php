@@ -76,13 +76,14 @@ abstract class Base
 			{
 				\ob_start();
 				$object->renderUI();
-				$renderedContent = \ob_get_flush();
+				$renderedContent = \ob_get_clean();
 				$result .= $renderedContent;
 			}
 			else
 			{
 				$result .= $object;
 			}
+
 		}
 		return $result;
 	}
