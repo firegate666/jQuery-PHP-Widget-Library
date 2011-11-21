@@ -50,9 +50,9 @@ foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 					->append(html\Div()->append(ui\Progressbar('tab-progressbar')->value(25))->attr('id', 'tabs-1'))
 					// datepicker
 					->append(html\Div()
-						->append('<label for="tab-startdate">Startdatum:</label>')
+						->append(htmli\Label()->append('Startdatum')->for('tab-startdate'))
 						->append(ui\DatePicker('tab-startdate'))
-						->append('<label for="tab-startdate">Enddatum:</label>')
+						->append(htmli\Label()->append('Enddatum')->for('tab-enddate'))
 						->append(ui\DatePicker('tab-enddate'))
 						->attr('id', 'tabs-2')
 					)
@@ -65,7 +65,7 @@ foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 					)
 					// autocomplete
 					->append(html\Div()
-						->append('<label for="tab-autocomplete">Choose country:</label>')
+						->append(htmli\Label()->append('Choose country')->for('tab-autocomplete'))
 						->append(ui\Autocomplete('tab-autocomplete')->source($autocompleteExample))
 						->attr('id', 'tabs-4')
 					)
@@ -97,8 +97,9 @@ foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 		</div>
 
 		<div style="position: absolute; bottom: 0; right: 0;" class="theme-switch">
-			<label>Choose theme:</label>
 			<?php
+				htmli\Label()->append('Choose theme:')->for('test')->renderUI();
+
 				ui\Button('ui-lightness')
 					->label('ui-lightness')
 					->type(htmli\A())
