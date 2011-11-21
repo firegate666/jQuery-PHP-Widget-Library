@@ -30,6 +30,17 @@ foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 
 		<script type="text/javascript" src="assets/jsor-jcarousel-0.2.8/lib/jquery.jcarousel.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="assets/jsor-jcarousel-0.2.8/skins/tango/skin.css" />
+
+		<script type="text/javascript">
+			jQuery.easing.elasout = function(x, t, b, c, d) {
+				var s=1.70158;var p=0;var a=c;
+				if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+				if (a < Math.abs(c)) { a=c; var s=p/4; }
+				else var s = p/(2*Math.PI) * Math.asin (c/a);
+				return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
+			};
+		</script>
+
     </head>
 
     <body>
@@ -87,6 +98,7 @@ foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 								->append(htmli\Li()->append('<img src="http://static.flickr.com/69/199481255_fdfe885f87_s.jpg" width="75" height="75" alt="" />'))
 								->append(htmli\Li()->append('<img src="http://static.flickr.com/60/199480111_87d4cb3e38_s.jpg" width="75" height="75" alt="" />'))
 								->append(htmli\Li()->append('<img src="http://static.flickr.com/70/229228324_08223b70fa_s.jpg" width="75" height="75" alt="" />'))
+								->easing('elasout')
 								->attr('class', 'jcarousel-skin-tango')
 						)
 						->attr('id', 'tabs-5')
