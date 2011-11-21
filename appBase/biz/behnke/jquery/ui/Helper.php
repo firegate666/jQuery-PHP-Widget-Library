@@ -78,3 +78,15 @@ function Progressbar($match, $scope = null)
 {
 	return \biz\behnke\jquery\ui\widgets\Progressbar::getInstance($match, $scope);
 }
+
+
+/**
+ *
+ * @param String $match
+ * @param null $scope
+ * @return \biz\behnke\jquery\ui\widgets\JCarousel
+ */
+function JCarousel($match, $scope = null)
+{
+	return \biz\behnke\jquery\ui\widgets\JCarousel::getInstance($match, $scope);
+}
