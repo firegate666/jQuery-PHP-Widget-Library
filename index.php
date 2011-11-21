@@ -33,44 +33,68 @@ foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 
 		<h1>Some Widget Examples</h1>
 
-		<div>Tabs:
-		<?php
-			ui\Tabs('tabs')
-				->append(html\Ul()
-					->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-1')->append('Progressbar')))
-					->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-2')->append('Tab 2')))
-					->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-3')->append('Tab 3')))
-				)
-				->append(html\Div()->append(ui\Progressbar('tab-progressbar')->value(25))->attr('id', 'tabs-1'))
-				->append(html\Div()->append(html\P()->append('Morbi tincidunt, dui sit amet facilisis feugiat.'))->attr('id', 'tabs-2'))
-				->append(html\Div()->append(html\P()->append('Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti.'))->attr('id', 'tabs-3'))
-				->renderUI();
-		?>
+		<div>
+			<?php html\H2()->append('Tabs')->renderUI(); ?>
+
+			<?php
+				ui\Tabs('tabs')
+					/* Tab Headlines */
+					->append(html\Ul()
+						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-1')->append('Progressbar')))
+						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-2')->append('Datepicker')))
+						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-3')->append('Button')))
+						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-4')->append('Autocomplete')))
+					)
+					/* Tab Divs */
+					// progressbar
+					->append(html\Div()->append(ui\Progressbar('tab-progressbar')->value(25))->attr('id', 'tabs-1'))
+					// datepicker
+					->append(html\Div()
+						->append('<label for="tab-startdate">Startdatum:</label>')
+						->append(ui\DatePicker('tab-startdate'))
+						->append('<label for="tab-startdate">Enddatum:</label>')
+						->append(ui\DatePicker('tab-enddate'))
+						->attr('id', 'tabs-2')
+					)
+					// progressbar
+					->append(html\Div()
+						->append(ui\Button('tab-button-button')->label('Button')->type(htmli\Button()))
+						->append(ui\Button('tab-button-link')->label('Button (Link)')->type(htmli\A()->link('http://www.google.de', '_blank')))
+						->append(ui\Button('tab-button-input')->label('Button (input)')->type(htmli\Input()->attr('type', 'text')))
+						->attr('id', 'tabs-3')
+					)
+					// autocomplete
+					->append(html\Div()
+						->append('<label for="tab-autocomplete">Choose country:</label>')
+						->append(ui\Autocomplete('tab-autocomplete')->source($autocompleteExample))
+						->attr('id', 'tabs-4')
+					)
+					// render it
+					->renderUI();
+			?>
 		</div>
-		
-		<div><label for="startdate">Startdatum:</label> <?php ui\DatePicker('startdate')->renderUI(); ?></div>
 
-		<div><label for="enddate">Enddatum:</label> <?php ui\DatePicker('enddate')->renderUI(); ?></div>
+		<div>
+			<?php html\H2()->append('Accordion')->renderUI(); ?>
 
-		<div>Button: <?php ui\Button('button')->label('Buttontext')->type(htmli\Button())->renderUI(); ?></div>
-
-		<div>Accordion:
-		<?php
-			ui\Accordion('accordion')
-				->append(html\H3()->append(htmli\A()->attr('href', '#')->append('Section 1')))
-				->append(html\Div()->append(html\P()->append('Text 1')))
-				->append(html\H3()->append(htmli\A()->attr('href', '#')->append('Section 2')))
-				->append(html\Div()->append(html\P()->append('Text 2')))
-				->append(html\H3()->append(htmli\A()->attr('href', '#')->append('Section 3')))
-				->append(html\Div()->append(html\P()->append('Text 3')))
-				->event('mouseover')
-				->renderUI();
-		?>
+			<?php
+				ui\Accordion('accordion')
+					->append(html\H3()->append(htmli\A()->attr('href', '#')->append('Section 1')))
+					->append(html\Div()->append(html\P()->append('Text 1')))
+					->append(html\H3()->append(htmli\A()->attr('href', '#')->append('Section 2')))
+					->append(html\Div()->append(html\P()->append('Text 2')))
+					->append(html\H3()->append(htmli\A()->attr('href', '#')->append('Section 3')))
+					->append(html\Div()->append(html\P()->append('Text 3')))
+					->event('mouseover')
+					->renderUI();
+			?>
 		</div>
 
-		<div>Slider: <?php ui\Slider('slider')->value(50)->animate(true)->renderUI(); ?></div>
+		<div>
+			<?php html\H2()->append('Slider')->renderUI(); ?>
 
-		<div><label for="autocomplete">Choose country:</label> <?php ui\Autocomplete('autocomplete')->source($autocompleteExample)->renderUI(); ?></div>
+			<?php ui\Slider('slider')->value(50)->animate(true)->renderUI(); ?>
+		</div>
 
 		<div style="position: absolute; bottom: 0; right: 0;" class="theme-switch">
 			<label>Choose theme:</label>
