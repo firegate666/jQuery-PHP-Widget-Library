@@ -16,10 +16,27 @@ class A extends Inline
 	}
 
 	/**
+	 * set attribute href and target in one step
+	 *
+	 * @param String $href
+	 * @param String $target
+	 * @return A
+	 */
+	public function link($href, $target = null)
+	{
+		$this->attr('href', $href);
+		if (!is_null($target))
+		{
+			$this->attr('target', $target);
+		}
+		return $this;
+	}
+
+	/**
 	 * get instance of div
 	 *
-	 * @param <type> $attributes
-	 * @return className
+	 * @param array $attributes
+	 * @return A
 	 */
 	static function getInstance($attributes = array())
 	{
