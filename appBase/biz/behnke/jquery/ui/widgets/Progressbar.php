@@ -19,13 +19,4 @@ class Progressbar extends jQueryUI
 		'value' => 0,
 	);
 
-	/**
-	 * @see biz\behnke\jquery\jQuery#renderUI()
-	 */
-	function renderUI()
-	{
-		print '<div id="' . $this->match . '"></div>';
-		self::add($this);
-	}
-
 }

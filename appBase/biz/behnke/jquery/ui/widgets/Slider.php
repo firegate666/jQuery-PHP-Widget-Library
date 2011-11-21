@@ -26,13 +26,4 @@ class Slider extends jQueryUI
 		'values' => null,
 	);
 
-	/**
-	 * @see biz\behnke\jquery\jQuery#renderUI()
-	 */
-	function renderUI()
-	{
-		print '<div id="' . $this->match . '"></div>';
-		self::add($this);
-	}
-
 }

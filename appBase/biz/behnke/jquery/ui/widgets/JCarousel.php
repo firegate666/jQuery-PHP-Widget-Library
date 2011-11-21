@@ -2,6 +2,7 @@
 
 namespace biz\behnke\jquery\ui\widgets;
 use biz\behnke\jquery\jQuery;
+use biz\behnke\w3c\html\blocklevel\Ul;
 
 /**
  * Description of JCarousel
@@ -44,13 +45,10 @@ class JCarousel extends jQuery
 		'itemFallbackDimension' => null,
 	);
 
-	/**
-	 * @see biz\behnke\jquery\jQuery#renderUI()
-	 */
-	function renderUI()
+	public function __construct($match, $scope = null)
 	{
-		print sprintf('<ul %s id="%s">%s</ul>', $this->renderAttr(), $this->match, $this->renderInnerHtml());
-		self::add($this);
+		parent::__construct($match, $scope = null);
+		$this->type(Ul::getInstance());
 	}
 
 }

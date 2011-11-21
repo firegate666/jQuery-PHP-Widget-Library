@@ -3,6 +3,7 @@
 namespace biz\behnke\jquery\ui\widgets;
 
 use biz\behnke\jquery\ui\jQueryUI;
+use biz\behnke\w3c\html\inline\Input;
 
 /**
  * Description of DatePicker
@@ -14,13 +15,11 @@ class DatePicker extends jQueryUI
 {
 	const METHOD = 'datepicker';
 
-	/**
-	 * @see biz\behnke\jquery\jQuery#renderUI()
-	 */
-	public function renderUI()
+
+	public function __construct($match, $scope = null)
 	{
-		print '<input type="text" id="' . $this->match . '" />';
-		self::add($this);
+		parent::__construct($match, $scope = null);
+		$this->type(Input::getInstance());
 	}
 
 }

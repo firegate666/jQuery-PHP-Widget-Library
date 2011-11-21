@@ -3,6 +3,7 @@
 namespace biz\behnke\jquery\ui\widgets;
 
 use biz\behnke\jquery\ui\jQueryUI;
+use biz\behnke\w3c\html\inline\Input;
 
 /**
  * Description of Autocomplete
@@ -24,13 +25,10 @@ class Autocomplete extends jQueryUI
 		'source' => array(),
 	);
 
-	/**
-	 * @see biz\behnke\jquery\jQuery#renderUI()
-	 */
-	function renderUI()
+	public function __construct($match, $scope = null)
 	{
-		print '<input id="' . $this->match . '" />';
-		self::add($this);
+		parent::__construct($match, $scope = null);
+		$this->type(Input::getInstance());
 	}
 
 }

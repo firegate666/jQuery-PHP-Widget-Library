@@ -29,13 +29,4 @@ class Accordion extends jQueryUI
 		'navigationFilter' => '',
 	);
 
-	/**
-	 * @see biz\behnke\jquery\jQuery#renderUI()
-	 */
-	function renderUI()
-	{
-		print sprintf('<div id="%s">%s</div>', $this->match, $this->renderInnerHtml());
-		self::add($this);
-	}
-
 }

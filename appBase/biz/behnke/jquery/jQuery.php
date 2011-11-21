@@ -4,6 +4,7 @@ namespace biz\behnke\jquery;
 
 use biz\behnke\Base;
 use biz\behnke\RenderUI;
+use biz\behnke\w3c\html\blocklevel\Div;
 
 /**
  * Description of jQuery
@@ -12,6 +13,25 @@ use biz\behnke\RenderUI;
  */
 abstract class jQuery extends Base implements RenderUI
 {
+
+	/**
+	 * inner tag type
+	 *
+	 * @var \biz\behnke\w3c\html\Tag
+	 */
+	protected $type = null;
+
+	/**
+	 *
+	 * @param \biz\behnke\w3c\html\Tag $type
+	 * @return jQuery
+	 */
+	public function type($type)
+	{
+		$this->type = $type;
+		return $this;
+	}
+
 	/**
 	 * jQuery version for this build
 	 */
@@ -78,6 +98,7 @@ abstract class jQuery extends Base implements RenderUI
 		$this->match = $match;
 		$this->scope = $scope;
 		$this->config = jQueryConfig::getInstance($this->defConfig);
+		$this->type(Div::getInstance());
 	}
 
 	/**
@@ -113,6 +134,28 @@ abstract class jQuery extends Base implements RenderUI
 				print $widget . ';' . PHP_EOL;
 			}
 		}
+	}
+
+	/**
+	 * render widget by rendering its containing tag container
+	 * 
+	 * @see biz\behnke\jquery\jQuery#renderUI()
+	 */
+	function renderUI()
+	{
+		foreach ($this->attributes as $k => $v)
+		{
+			$this->type->attr($k, $v);
+		}
+		$this->type->id($this->match);
+
+		$this->type->before($this->renderBeforeHtml());
+		$this->type->append($this->renderInnerHtml());
+		$this->type->after($this->renderAfterHtml());
+
+		print $this->type;
+
+		self::add($this);
 	}
 
 	/**

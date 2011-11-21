@@ -30,18 +30,4 @@ class Tabs extends jQueryUI
 		'tabTemplate' => '<li><a href="#{href}"><span>#{label}</span></a></li>',
 	);
 
-	/**
-	 * @see biz\behnke\jquery\jQuery#renderUI()
-	 */
-	function renderUI()
-	{
-		print sprintf('%s<div id="%s">%s</div>%s',
-				$this->renderBeforeHtml(),
-				$this->match,
-				$this->renderInnerHtml(),
-				$this->renderAfterHtml()
-		);
-		self::add($this);
-	}
-
 }
