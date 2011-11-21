@@ -27,6 +27,9 @@ foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 
 		<script type="text/javascript" src="assets/jquery-ui-1.8.16.custom/js/jquery-1.6.2.min.js"></script>
 		<script type="text/javascript" src="assets/jquery-ui-1.8.16.custom/js/jquery-ui-1.8.16.custom.min.js"></script>
+
+		<script type="text/javascript" src="assets/jsor-jcarousel-0.2.8/lib/jquery.jcarousel.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/jsor-jcarousel-0.2.8/skins/tango/skin.css" />
     </head>
 
     <body>
@@ -44,6 +47,7 @@ foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-2')->append('Datepicker')))
 						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-3')->append('Button')))
 						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-4')->append('Autocomplete')))
+						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-5')->append('jCarousel')))
 					)
 					/* Tab Divs */
 					// progressbar
@@ -68,6 +72,24 @@ foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 						->append(htmli\Label()->append('Choose country')->for('tab-autocomplete'))
 						->append(ui\Autocomplete('tab-autocomplete')->source($autocompleteExample))
 						->attr('id', 'tabs-4')
+					)
+					// jCarousel
+					->append(html\Div()
+						->append(
+							ui\JCarousel('carousel')
+								->append(htmli\Li()->append('<img src="http://static.flickr.com/66/199481236_dc98b5abb3_s.jpg" width="75" height="75" alt="" />'))
+								->append(htmli\Li()->append('<img src="http://static.flickr.com/75/199481072_b4a0d09597_s.jpg" width="75" height="75" alt="" />'))
+								->append(htmli\Li()->append('<img src="http://static.flickr.com/57/199481087_33ae73a8de_s.jpg" width="75" height="75" alt="" />'))
+								->append(htmli\Li()->append('<img src="http://static.flickr.com/77/199481108_4359e6b971_s.jpg" width="75" height="75" alt="" />'))
+								->append(htmli\Li()->append('<img src="http://static.flickr.com/58/199481143_3c148d9dd3_s.jpg" width="75" height="75" alt="" />'))
+								->append(htmli\Li()->append('<img src="http://static.flickr.com/72/199481203_ad4cdcf109_s.jpg" width="75" height="75" alt="" />'))
+								->append(htmli\Li()->append('<img src="http://static.flickr.com/58/199481218_264ce20da0_s.jpg" width="75" height="75" alt="" />'))
+								->append(htmli\Li()->append('<img src="http://static.flickr.com/69/199481255_fdfe885f87_s.jpg" width="75" height="75" alt="" />'))
+								->append(htmli\Li()->append('<img src="http://static.flickr.com/60/199480111_87d4cb3e38_s.jpg" width="75" height="75" alt="" />'))
+								->append(htmli\Li()->append('<img src="http://static.flickr.com/70/229228324_08223b70fa_s.jpg" width="75" height="75" alt="" />'))
+								->attr('class', 'jcarousel-skin-tango')
+						)
+						->attr('id', 'tabs-5')
 					)
 					// render it
 					->renderUI();
