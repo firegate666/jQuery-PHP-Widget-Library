@@ -41,3 +41,13 @@ function Input($attributes = array())
 {
 	return \biz\behnke\w3c\html\inline\Input::getInstance($attributes);
 }
+
+/**
+ *
+ * @param array $attributes
+ * @return \biz\behnke\w3c\html\inline\Label
+ */
+function Label($attributes = array())
+{
+	return \biz\behnke\w3c\html\inline\Label::getInstance($attributes);
+}
