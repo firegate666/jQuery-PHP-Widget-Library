@@ -12,7 +12,6 @@ use biz\behnke\w3c\html\blocklevel\Ul;
  */
 class JCarousel extends jQuery
 {
-	const METHOD = 'jcarousel';
 
 	protected $defConfig = array(
 		'vertical' => false,

@@ -12,7 +12,6 @@ use biz\behnke\jquery\ui\jQueryUI;
  */
 class Accordion extends jQueryUI
 {
-	const METHOD = 'accordion';
 
 	protected $defConfig = array(
 		'disabled' => false,

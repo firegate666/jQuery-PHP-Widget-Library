@@ -12,7 +12,6 @@ use biz\behnke\jquery\ui\jQueryUI;
  */
 class Tabs extends jQueryUI
 {
-	const METHOD = 'tabs';
 
 	protected $defConfig = array(
 		'disabled' => array(), // can be array as well

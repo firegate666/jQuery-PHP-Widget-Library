@@ -13,7 +13,6 @@ use biz\behnke\w3c\html\inline\Input;
  */
 class Autocomplete extends jQueryUI
 {
-	const METHOD = 'autocomplete';
 
 	protected $defConfig = array(
 		'disabled' => false,

@@ -13,7 +13,6 @@ use biz\behnke\w3c\html\inline\A;
  */
 class Button extends jQueryUI
 {
-	const METHOD = 'button';
 
 	protected $defConfig = array(
 		'label' => 'My Button',

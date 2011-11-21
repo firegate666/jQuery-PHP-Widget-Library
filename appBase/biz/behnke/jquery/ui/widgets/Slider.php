@@ -12,7 +12,6 @@ use biz\behnke\jquery\ui\jQueryUI;
  */
 class Slider extends jQueryUI
 {
-	const METHOD = 'slider';
 
 	protected $defConfig = array(
 		'disabled' => false,

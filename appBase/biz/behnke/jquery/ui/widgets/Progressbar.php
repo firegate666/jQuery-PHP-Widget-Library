@@ -12,7 +12,6 @@ use biz\behnke\jquery\ui\jQueryUI;
  */
 class Progressbar extends jQueryUI
 {
-	const METHOD = 'progressbar';
 
 	protected $defConfig = array(
 		'disabled' => false,

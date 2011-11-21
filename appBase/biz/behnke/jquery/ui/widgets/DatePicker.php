@@ -13,8 +13,6 @@ use biz\behnke\w3c\html\inline\Input;
  */
 class DatePicker extends jQueryUI
 {
-	const METHOD = 'datepicker';
-
 
 	public function __construct($match, $scope = null)
 	{

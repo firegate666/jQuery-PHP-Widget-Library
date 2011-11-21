@@ -169,8 +169,15 @@ abstract class jQuery extends Base implements RenderUI
 		$config = json_encode($this->config);
 		return 'jQuery('
 		. self::quote('#' . $this->match) . ').'
-		. static::METHOD . '(' . $config . ')'
+		. $this->getJSName() . '(' . $config . ')'
 		;
+	}
+
+	protected function getJSName()
+	{
+		$classname = strtolower(get_class($this));
+		$pos = \strrpos($classname, '\\') + 1;
+		return \substr($classname, $pos);
 	}
 
 	/**
