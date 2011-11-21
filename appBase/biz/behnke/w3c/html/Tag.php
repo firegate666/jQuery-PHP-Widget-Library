@@ -84,4 +84,30 @@ abstract class Tag extends Base
 		return $result;
 	}
 
+	/**
+	 * append item to or fetch from attributes
+	 * this is a shortcut for biz\behnke\Base::attr(key, value)
+	 *
+	 * @example $label->for('mylabelname'): <label for="mylabelname"></label>
+	 * @param String $name
+	 * @param array $arguments
+	 * @return Tag
+	 */
+	public function __call($name, $arguments)
+	{
+		if (array_key_exists($name, $this->attributes) && count($arguments) == 0) // getter
+		{
+			return $this->attributes[$name];
+		}
+		else if (count($arguments) == 1) // setter
+		{
+			$this->attributes[$name] = array_pop($arguments);
+		}
+		else
+		{
+			throw new \Exception(sprintf('Invalid method "%s" called in %s:%d', $name, __FILE__, __LINE__), 500);
+		}
+		return $this;
+	}
+
 }
