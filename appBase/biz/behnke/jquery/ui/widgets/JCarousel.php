@@ -14,6 +14,34 @@ class JCarousel extends jQuery
 	const METHOD = 'jcarousel';
 
 	protected $defConfig = array(
+		'vertical' => false,
+		'rtl' => false,
+		'start' => 1,
+		'offset' => 1,
+		'size' => null,
+		'scroll' => 3,
+		'visible' => null,
+		'animation' => 'fast',
+		'easing' => null,
+		'auto' => 0,
+		'wrap'=> null,
+		'initCallback' => null,
+		'setupCallback' => null,
+		'itemLoadCallback' => null,
+		'itemFirstInCallback' => null,
+		'itemFirstOutCallback' => null,
+		'itemLastInCallback' => null,
+		'itemLastOutCallback' => null,
+		'itemVisibleInCallback' => null,
+		'itemVisibleOutCallback' => null,
+		'animationStepCallback' => null,
+		'buttonNextCallback' => null,
+		'buttonPrevCallback' => null,
+		'buttonNextHTML' => '<div></div>',
+		'buttonPrevHTML' => '<div></div>',
+		'buttonNextEvent' => 'click',
+		'buttonPrevEvent' => 'click',
+		'itemFallbackDimension' => null,
 	);
 
 	/**
