@@ -60,7 +60,7 @@ class JCarousel extends jQuery
 		'itemFallbackDimension' => null,
 	);
 
-	public function __construct($match, $scope = null)
+	protected function __construct($match, $scope = null)
 	{
 		parent::__construct($match, $scope = null);
 		$this->type(Ul::getInstance());

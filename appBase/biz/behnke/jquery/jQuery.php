@@ -29,6 +29,12 @@ use biz\behnke\w3c\html\blocklevel\Div;
  */
 abstract class jQuery extends Base implements RenderUI
 {
+	/**
+	 * keep track of all created objects
+	 * 
+	 * @var array
+	 */
+	static $objectRegistry = array();
 
 	/**
 	 * inner tag type
@@ -99,17 +105,21 @@ abstract class jQuery extends Base implements RenderUI
 	/**
 	 * get instance of jquery widget
 	 *
-	 * @param String $match
+	 * @param String $match unique identifier
 	 * @param null $scope
 	 * @return jQuery
 	 */
 	static function getInstance($match, $scope = null)
 	{
-		$calledClass = static::getCalledClass();
-		return new $calledClass($match, $scope);
+		if (empty(self::$objectRegistry[$match]))
+		{
+			$calledClass = static::getCalledClass();
+			self::$objectRegistry[$match] = new $calledClass($match, $scope);
+		}
+		return self::$objectRegistry[$match];
 	}
 
-	public function __construct($match, $scope = null)
+	protected function __construct($match, $scope = null)
 	{
 		$this->match = $match;
 		$this->scope = $scope;

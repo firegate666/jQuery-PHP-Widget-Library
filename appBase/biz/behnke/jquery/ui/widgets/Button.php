@@ -37,7 +37,7 @@ class Button extends jQueryUI
 		'icons' => array('primary' => null, 'secondary' => null),
 	);
 
-	public function __construct($match, $scope = null)
+	protected function __construct($match, $scope = null)
 	{
 		parent::__construct($match, $scope = null);
 		$this->type(A::getInstance());

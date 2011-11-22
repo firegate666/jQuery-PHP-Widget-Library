@@ -30,7 +30,7 @@ use biz\behnke\w3c\html\inline\Input;
 class DatePicker extends jQueryUI
 {
 
-	public function __construct($match, $scope = null)
+	protected function __construct($match, $scope = null)
 	{
 		parent::__construct($match, $scope = null);
 		$this->type(Input::getInstance());

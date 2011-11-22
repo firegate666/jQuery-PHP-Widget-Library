@@ -40,7 +40,7 @@ class Autocomplete extends jQueryUI
 		'source' => array(),
 	);
 
-	public function __construct($match, $scope = null)
+	protected function __construct($match, $scope = null)
 	{
 		parent::__construct($match, $scope = null);
 		$this->type(Input::getInstance());
