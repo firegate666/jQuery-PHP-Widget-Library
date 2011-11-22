@@ -188,7 +188,7 @@ abstract class jQuery extends Base implements RenderUI
 		$this->type->append($this->renderInnerHtml());
 		$this->type->after($this->renderAfterHtml());
 
-		print $this->type;
+		print $this->type . PHP_EOL;
 
 		self::add($this);
 	}
