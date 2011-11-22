@@ -79,7 +79,14 @@ abstract class jQuery extends Base implements RenderUI
 	 *
 	 * @var boolean
 	 */
-	protected $rendered = false;
+	protected $jsRendered = false;
+
+	/**
+	 * true if this widget ui was printed
+	 *
+	 * @var boolean
+	 */
+	protected $uiRendered = false;
 
 	/**
 	 * config container
@@ -155,7 +162,7 @@ abstract class jQuery extends Base implements RenderUI
 	{
 		foreach (self::$CallStack as $widget)
 		{
-			if (!$widget->rendered)
+			if (!$widget->jsRendered)
 			{
 				print $widget . ';' . PHP_EOL;
 			}
@@ -169,6 +176,8 @@ abstract class jQuery extends Base implements RenderUI
 	 */
 	function renderUI()
 	{
+		$this->uiRendered = true;
+
 		foreach ($this->attributes as $k => $v)
 		{
 			$this->type->attr($k, $v);
@@ -191,7 +200,7 @@ abstract class jQuery extends Base implements RenderUI
 	 */
 	public function __toString()
 	{
-		$widget->rendered = true;
+		$widget->jsRendered = true;
 		$config = json_encode($this->config);
 		return 'jQuery('
 		. self::quote('#' . $this->match) . ').'
