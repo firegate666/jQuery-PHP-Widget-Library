@@ -44,5 +44,3 @@ class Div extends BlockLevel
 	}
 
 }
-
-?>
