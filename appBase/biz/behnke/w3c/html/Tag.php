@@ -68,10 +68,26 @@ abstract class Tag extends Base
 
 	/**
 	 * print object
+	 *
+	 * @param boolean $returnAsString
+	 * @param boolean $minified
+	 * @return null/String
 	 */
-	public function renderUI()
+	public function renderUI($returnAsString = false, $minified = false)
 	{
-		print $this;
+		if ($returnAsString)
+		{
+			return $this.'';
+		}
+		else
+		{
+			print $this;
+			if (!$minified)
+			{
+				print PHP_EOL;
+			}
+			return null;
+		}
 	}
 
 	/**

@@ -172,9 +172,11 @@ abstract class jQuery extends Base implements RenderUI
 	/**
 	 * render widget by rendering its containing tag container
 	 * 
-	 * @see biz\behnke\jquery\jQuery#renderUI()
+	 * @param boolean $returnAsString
+	 * @param boolean $minified
+	 * @return null/String
 	 */
-	function renderUI()
+	function renderUI($returnAsString = false, $minified = false)
 	{
 		$this->uiRendered = true;
 
@@ -188,9 +190,17 @@ abstract class jQuery extends Base implements RenderUI
 		$this->type->append($this->renderInnerHtml());
 		$this->type->after($this->renderAfterHtml());
 
-		print $this->type . PHP_EOL;
-
 		self::add($this);
+
+		if ($returnAsString)
+		{
+			return $this->type->renderUI(true);
+		}
+		else
+		{
+			print $this->type->renderUI(false, $minified);
+			return null;
+		}
 	}
 
 	/**
