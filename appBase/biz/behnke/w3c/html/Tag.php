@@ -27,7 +27,11 @@ use biz\behnke\Base;
  */
 abstract class Tag extends Base
 {
-	const SELF_CLOSING = false;
+	const MAY_SELF_CLOSE = 1;
+	const MUST_SELF_CLOSE = 2;
+	const MUST_NOT_SELF_CLOSE = 3;
+
+	const CLOSE_MODE = self::MUST_NOT_SELF_CLOSE;
 
 	/**
 	 * our tag identifier, e.g. div
@@ -77,9 +81,18 @@ abstract class Tag extends Base
 	 */
 	public function __toString()
 	{
-		$result = sprintf('<%s %s', $this->name, $this->renderAttr());
+		$result = '<' . $this->name;
+		if (!empty($this->attributes))
+		{
+			$result .= ' ' . $this->renderAttr();
+		}
 
-		if (!static::SELF_CLOSING)
+		if (static::CLOSE_MODE == Tag::MUST_SELF_CLOSE)
+		{
+			$result .= ' />';
+		}
+
+		if (static::CLOSE_MODE == Tag::MUST_NOT_SELF_CLOSE)
 		{
 			$result .= '>';
 		}
@@ -89,14 +102,19 @@ abstract class Tag extends Base
 			$result .= $this->renderInnerHtml();
 		}
 
-		if (empty($this->innerHtml) && static::SELF_CLOSING)
+		if (empty($this->innerHtml) && static::CLOSE_MODE == self::MAY_SELF_CLOSE)
 		{
 			$result .= ' />';
+		}
+		else if (empty($this->innerHtml) && static::CLOSE_MODE == self::MUST_NOT_SELF_CLOSE)
+		{
+			$result .= sprintf('></%s>', $this->name);
 		}
 		else
 		{
 			$result .= sprintf('</%s>', $this->name);
 		}
+
 		return $result;
 	}
 

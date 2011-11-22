@@ -25,7 +25,7 @@ namespace biz\behnke\w3c\html\inline;
  */
 class Input extends Inline
 {
-	const SELF_CLOSING = true;
+	const CLOSE_MODE = self::MUST_SELF_CLOSE;
 
 	public function __construct($attributes = array())
 	{
