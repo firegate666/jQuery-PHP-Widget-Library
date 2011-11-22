@@ -81,19 +81,17 @@ abstract class Base
 	 * render collection of objecs to html
 	 *
 	 * @param array $htmlArray
+	 * @param boolean $minified
 	 * @return String
 	 */
-	private function renderHtml($htmlArray)
+	private function renderHtml($htmlArray, $minified = false)
 	{
 		$result = '';
 		foreach ($htmlArray as $object)
 		{
 			if ($object instanceof RenderUI)
 			{
-				\ob_start();
-				$object->renderUI();
-				$renderedContent = \ob_get_clean();
-				$result .= $renderedContent;
+				$result .= $object->renderUI(true, false);
 			}
 			else
 			{
