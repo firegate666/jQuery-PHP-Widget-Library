@@ -133,7 +133,8 @@ abstract class jQuery extends Base implements RenderUI
 	 */
 	static function getInstance($match, $scope = null)
 	{
-		if (empty(self::$objectRegistry[$match]))
+		$object = self::fetchInstance($match);
+		if ($object instanceof NoJQuery)
 		{
 			$calledClass = static::getCalledClass();
 			self::$objectRegistry[$match] = new $calledClass($match, $scope);
