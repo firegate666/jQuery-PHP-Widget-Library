@@ -110,6 +110,21 @@ abstract class jQuery extends Base implements RenderUI
 	protected static $CallStack = array();
 
 	/**
+	 * fetch instance from registry by id
+	 *
+	 * @param String $match
+	 * @return jQuery/false
+	 */
+	static function fetchInstance($match)
+	{
+		if (empty(self::$objectRegistry[$match]))
+		{
+			return NoJQuery::getInstance();
+		}
+		return self::$objectRegistry[$match];
+	}
+
+	/**
 	 * get instance of jquery widget
 	 *
 	 * @param String $match unique identifier
