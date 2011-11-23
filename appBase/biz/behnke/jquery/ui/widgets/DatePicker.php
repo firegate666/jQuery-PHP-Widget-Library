@@ -33,7 +33,7 @@ class DatePicker extends jQueryUI
 	protected function __construct($match, $scope = null)
 	{
 		parent::__construct($match, $scope = null);
-		$this->type(Input::getInstance());
+		$this->type(Input::getInstance()->type('text'));
 	}
 
 }
