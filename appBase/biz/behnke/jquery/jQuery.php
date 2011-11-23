@@ -251,11 +251,11 @@ abstract class jQuery extends Base implements RenderUI
 	{
 		if (array_key_exists($name, $this->config) && count($arguments) == 0) // getter
 		{
-			return $this->config->$name;
+			return $this->config->get($name);
 		}
-		else if (array_key_exists($name, $this->config) && count($arguments) == 1) // setter
+		else if ($this->config->hasConfig($name) && count($arguments) == 1) // setter
 		{
-			$this->config->$name = array_pop($arguments);
+			$this->config->set($name, array_pop($arguments));
 		}
 		else
 		{
