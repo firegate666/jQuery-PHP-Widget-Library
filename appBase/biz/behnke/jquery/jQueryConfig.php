@@ -77,7 +77,7 @@ class jQueryConfig
 		return array_key_exists($key, $this->defConfig);
 	}
 
-	public function __construct(array $defConfig = array())
+	protected function __construct(array $defConfig = array())
 	{
 		$this->defConfig = $defConfig;
 	}
