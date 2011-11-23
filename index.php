@@ -31,6 +31,9 @@ foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 		<script type="text/javascript" src="assets/jsor-jcarousel-0.2.8/lib/jquery.jcarousel.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="assets/jsor-jcarousel-0.2.8/skins/tango/skin.css" />
 
+		<script type="text/javascript" src="assets/jquery.ui.spinner/ui.spinner.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/jquery.ui.spinner/ui.spinner.css" />
+
 		<script type="text/javascript">
 			jQuery.easing.elasout = function(x, t, b, c, d) {
 				var s=1.70158;var p=0;var a=c;
@@ -59,6 +62,7 @@ foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-3')->append('Button')))
 						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-4')->append('Autocomplete')))
 						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-5')->append('jCarousel')))
+						->append(htmli\Li()->append(htmli\A()->attr('href', '#tabs-6')->append('Spinner')))
 					)
 					/* Tab Divs */
 					// progressbar
@@ -103,6 +107,8 @@ foreach (\biz\behnke\util\Country::xmlList()->country as $country)
 						)
 						->attr('id', 'tabs-5')
 					)
+					// spinner
+					->append(html\Div()->append(ui\Spinner('tab-spinner'))->attr('id', 'tabs-6'))
 					// render it
 					->renderUI();
 			?>

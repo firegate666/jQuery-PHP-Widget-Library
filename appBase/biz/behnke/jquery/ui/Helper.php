@@ -95,7 +95,6 @@ function Progressbar($match, $scope = null)
 	return \biz\behnke\jquery\ui\widgets\Progressbar::getInstance($match, $scope);
 }
 
-
 /**
  *
  * @param String $match
@@ -105,4 +104,15 @@ function Progressbar($match, $scope = null)
 function JCarousel($match, $scope = null)
 {
 	return \biz\behnke\jquery\ui\widgets\JCarousel::getInstance($match, $scope);
+}
+
+/**
+ *
+ * @param String $match
+ * @param null $scope
+ * @return \biz\behnke\jquery\ui\widgets\Spinner
+ */
+function Spinner($match, $scope = null)
+{
+	return \biz\behnke\jquery\ui\widgets\Spinner::getInstance($match, $scope);
 }
