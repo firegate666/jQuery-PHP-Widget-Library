@@ -21,7 +21,6 @@ namespace biz\behnke\jquery;
 use biz\behnke\Base;
 use biz\behnke\RenderUI;
 use biz\behnke\w3c\html\blocklevel\Div;
-use exceptions\InvalidMethodException;
 
 /**
  * Description of jQuery
@@ -246,6 +245,7 @@ abstract class jQuery extends Base implements RenderUI
 	 *
 	 * @param String $name
 	 * @param array $arguments
+	 * @throws BadMethodCallException
 	 * @return jQuery
 	 */
 	public function __call($name, $arguments)
@@ -260,7 +260,7 @@ abstract class jQuery extends Base implements RenderUI
 		}
 		else
 		{
-			throw new InvalidMethodException(sprintf('Invalid method "%s" called on %s', $name, static::getCalledClass()), 500);
+			throw new \BadMethodCallException(sprintf('Invalid method "%s" called on %s', $name, static::getCalledClass()), 500);
 		}
 		return $this;
 	}

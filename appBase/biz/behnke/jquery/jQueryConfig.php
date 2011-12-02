@@ -17,7 +17,6 @@
  **************************************************************************/
 
 namespace biz\behnke\jquery;
-use biz\behnke\jquery\exceptions\NoSuchPropertyException;
 
 /**
  * Description of jQueryConfig
@@ -39,13 +38,13 @@ class jQueryConfig
 	 * 
 	 * @param String $key
 	 * @param mixed $value
-	 * @throws NoSuchPropertyException
+	 * @throws \InvalidArgumentException
 	 */
 	public function set($key, $value)
 	{
 		if (!$this->hasConfig($key))
 		{
-			throw NoSuchPropertyException(sprintf('Property "%s" is invalid and can not be set', $key));
+			throw \InvalidArgumentException(sprintf('Property "%s" is invalid and can not be set', $key));
 		}
 		$this->$key = $value;
 	}
@@ -54,14 +53,14 @@ class jQueryConfig
 	 * get config value
 	 *
 	 * @param String $key
-	 * @throws NoSuchPropertyException
+	 * @throws \InvalidArgumentException
 	 * @return mixed
 	 */
 	public function get($key)
 	{
 		if (!$this->hasConfig($key))
 		{
-			throw NoSuchPropertyException(sprintf('Property "%s" is invalid and can not be get', $key));
+			throw \InvalidArgumentException(sprintf('Property "%s" is invalid and can not be get', $key));
 		}
 		return $this->$key;
 	}
