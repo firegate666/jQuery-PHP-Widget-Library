@@ -44,7 +44,7 @@ class jQueryConfig
 	{
 		if (!$this->hasConfig($key))
 		{
-			throw \InvalidArgumentException(sprintf('Property "%s" is invalid and can not be set', $key));
+			throw new \InvalidArgumentException(sprintf('Property "%s" is invalid and can not be set', $key));
 		}
 		$this->$key = $value;
 	}
@@ -60,7 +60,7 @@ class jQueryConfig
 	{
 		if (!$this->hasConfig($key))
 		{
-			throw \InvalidArgumentException(sprintf('Property "%s" is invalid and can not be get', $key));
+			throw new \InvalidArgumentException(sprintf('Property "%s" is invalid and can not be get', $key));
 		}
 		return $this->$key;
 	}
