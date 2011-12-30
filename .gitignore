@@ -1,5 +1,9 @@
 nbproject
+.settings
 .metadata
+
+.buildpath
+.project
 
 *.tmp
 *.swp
