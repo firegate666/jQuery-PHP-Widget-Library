@@ -23,7 +23,7 @@ namespace biz\behnke\jquery\exceptions;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-class ModfiedAfterRenderException extends Exception
+class ModfiedAfterRenderException extends \Exception
 {
 
 }
