@@ -9,3 +9,6 @@ nbproject
 *.swp
 *.phps
 
+build/*
+
+cache.properties
