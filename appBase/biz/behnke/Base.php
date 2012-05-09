@@ -99,6 +99,9 @@ abstract class Base
 			}
 
 		}
+		if ($minified) {
+			$result = preg_replace('/ +/', ' ', $result);
+		}
 		return $result;
 	}
 
@@ -161,7 +164,7 @@ abstract class Base
 
 	/**
 	 * append this to object
-	 * 
+	 *
 	 * @param Object $object
 	 * @return Object
 	 */
