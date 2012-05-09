@@ -23,7 +23,7 @@ namespace biz\behnke;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-interface RenderUI
+interface Renderable
 {
 	public function renderUI();
 }

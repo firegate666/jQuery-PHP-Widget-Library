@@ -19,7 +19,7 @@
 namespace biz\behnke\jquery;
 
 use biz\behnke\Base;
-use biz\behnke\RenderUI;
+use biz\behnke\Renderable;
 use biz\behnke\w3c\html\blocklevel\Div;
 
 /**
@@ -27,7 +27,7 @@ use biz\behnke\w3c\html\blocklevel\Div;
  *
  * @author Marco Behnke <marco@behnke.biz>
  */
-abstract class jQuery extends Base implements RenderUI
+abstract class jQuery extends Base implements Renderable
 {
 	/**
 	 * keep track of all created objects

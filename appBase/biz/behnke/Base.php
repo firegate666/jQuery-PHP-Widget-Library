@@ -89,7 +89,7 @@ abstract class Base
 		$result = '';
 		foreach ($htmlArray as $object)
 		{
-			if ($object instanceof RenderUI)
+			if ($object instanceof Renderable)
 			{
 				$result .= $object->renderUI(true, false);
 			}
